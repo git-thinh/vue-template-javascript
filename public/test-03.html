@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Distributor Locator</title>
+    <script src="./distributor-locator.lib.js"></script>
+</head>
+
+<body>
+    <button class="flex p-4">This button must look the same with and without style.css</button>
+    <div id="box" style="width: 75vw; height: 75vh; margin: 100px auto; border: 1px solid red;"></div>
+    <div style="height: 3000px;">The page must scroll down to here.</div>
+
+    <script>
+        console.log(`MascotDLL =`, window.MascotDLL)
+
+        //window.API_DATA_BASE_URL = 'https://distributor-locator-lib.netlify.app'
+        //await import('./distributor-locator.lib.js')
+
+        async function test() {
+            const element = document.getElementById('box')
+            for (let i = 0; i < 5; i++) {
+                const locator = await window.MascotDLL.initApp(element, { storeview: 'de' })
+                locator.destroy()
+            }
+            await window.MascotDLL.initApp(element, { storeview: 'de' })
+        }
+        test();
+    </script>
+</body>
+
+</html>

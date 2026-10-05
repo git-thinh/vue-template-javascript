@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Distributor Locator</title>
+    <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="__app" style="width: 100vw;height: 100vh;"></div>
+    <script type="module">
+        await import('./distributor-locator.lib.js')
+
+        console.log('[ TEST ] MascotDLL =', window.MascotDLL);
+        if (!window.MascotDLL) {
+            throw new Error('MascotDLL was not initialized')
+        }
+
+        const element = document.getElementById('__app');
+        const nuxtApp = await window.MascotDLL.initApp(element)
+        console.log('[ TEST ] Nuxt mounted:', nuxtApp);
+    </script>
+</body>
+
+</html>
