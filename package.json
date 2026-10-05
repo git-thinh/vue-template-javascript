@@ -4,15 +4,22 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 10100",
+    "dev": "vite --port 10107",
     "build": "vite build",
-    "preview": "vite preview --port 10100"
+    "lib:build": "vite build --config vite.lib.config.js",
+    "sfc:build": "node ./build/build-lib.js",
+    "preview": "vite preview --port 10107"
   },
   "dependencies": {
     "vue": "^3.5.43"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.9",
-    "vite": "^8.3.2"
+    "cross-env": "^10.1.0",
+    "dotenv": "^18.0.5",
+    "unplugin-auto-import": "^21.1.0",
+    "unplugin-vue-components": "^32.1.0",
+    "vite": "^8.3.2",
+    "vite-plugin-css-injected-by-js": "^5.0.2"
   }
 }
